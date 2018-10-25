@@ -50,10 +50,11 @@
       ],
       "/Users/rebeccalelew/Projects/bookmark_managerEdyta/spec/features/create_bookmark_spec.rb": [
         1,
+        null,
         1,
-        1,
-        1,
-        1,
+        2,
+        null,
+        null,
         1,
         1,
         null,
@@ -61,27 +62,24 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        null,
         null,
         null,
         null
       ],
       "/Users/rebeccalelew/Projects/bookmark_managerEdyta/spec/features/deleting_bookmarks_spec.rb": [
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
         1,
         1,
         1,
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
+        null,
         1,
         1,
         null,
@@ -109,9 +107,7 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
+        null,
         1,
         null,
         null,
@@ -129,6 +125,6 @@
         null
       ]
     },
-    "timestamp": 1540499073
+    "timestamp": 1540499452
   }
 }
