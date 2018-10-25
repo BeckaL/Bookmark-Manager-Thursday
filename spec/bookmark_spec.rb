@@ -3,23 +3,13 @@ require 'bookmark'
 describe '.all' do
   it 'returns a list of bookmarks' do
     connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com')")
+    bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
+    persisted_dat = PG.connect(dbname: 'bookmark_manager_test').query("SELECT * FROM bookmarks WHERE id = #{bookmark.id};")
     bookmarks = Bookmark.all
-
-    expect(bookmarks).to include "http://www.makersacademy.com"
+    expect(bookmarks.length).to eq 1
+    expect(bookmarks.first).to be_a Bookmark
+    expect(bookmarks.first.title).to eq 'Makers Academy'
+    expect(bookmarks.first.url).to eq "http://www.makersacademy.com"
   end
 
-  it 'returns a list of bookmarks' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.becka.com')")
-    bookmarks = Bookmark.all
-
-    expect(bookmarks).to include "http://www.becka.com"
-  end
-
-  it 'adds a bookmark and can view it' do
-    bookmark = Bookmark.new
-    bookmark.add('www.edyta.com', 'edyta site')
-    expect(Bookmark.all).to include 'www.edyta.com'
-  end
 end
