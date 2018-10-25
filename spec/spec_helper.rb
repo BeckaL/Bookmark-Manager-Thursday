@@ -21,6 +21,6 @@ SimpleCov.start
 RSpec.configure do |config|
   config.before(:each) do
     connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("TRUNCATE bookmarks;")
+    connection.exec("TRUNCATE bookmarks CASCADE;")
   end
 end

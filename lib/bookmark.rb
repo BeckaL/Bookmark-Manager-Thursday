@@ -37,4 +37,19 @@ class Bookmark
     result.map { |bookmark| bookmark['title'] }
   end
 
+  def self.delete(title)
+    connection = connect_to_database
+    connection.exec("DELETE FROM bookmarks WHERE title = '#{title}';")
+  end
+
+  def self.get_by_title(title)
+    connection = connect_to_database
+    connection.exec("SELECT * FROM bookmarks WHERE title = '#{title}';").first
+  end
+
+  def self.update(id, new_title, new_url)
+    connection = connect_to_database
+    connection.exec("UPDATE bookmarks SET url = '#{new_url}', title = '#{new_title}' WHERE id = #{id};")
+  end
+
 end
